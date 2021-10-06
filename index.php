@@ -1,21 +1,29 @@
 <?php
 include 'app/config/config.php';
-die();
 
+use App\utils\RenderHtml;
+
+$html = new RenderHtml();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<?php include './public/views/common/header.php' ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digesto - <?= date("Y"); ?></title>
-</head>
+<img src="./public/assets/banner.jpeg" alt="banner" width="50%">
+<div class="container">
+    <h1>Digesto</h1>
+    <div class="card-container mx-auto justify-content-center">
+        <?= $html->simpleCard('Estatuto', 'Descripción') ?>
+        <?= $html->simpleCard('Decretos', 'Descripción') ?>
+        <?= $html->simpleCard('Ediciones Especiales', 'Descripción') ?>
+        <?= $html->simpleCard('Odenanzas', 'Descripción') ?>
+        <?= $html->simpleCard('Carta Organica', 'Descripción') ?>
+        <?= $html->simpleCard('Disposiciones', 'Descripción') ?>
+        <?= $html->simpleCard('Edictos', 'Descripción') ?>
+        <?= $html->simpleCard('Estatuto', 'Descripción') ?>
+        <?= $html->simpleCard('Resoluciones', 'Descripción') ?>
+        <?= $html->simpleCard('Estatuto', 'Descripción') ?>
+        <?= $html->simpleCard('Resolucion IMUH', 'Descripción') ?>
+    </div>
+</div>
 
-<body>
-
-</body>
-
-</html>
+<?php include './public/views/common/footer.php' ?>
