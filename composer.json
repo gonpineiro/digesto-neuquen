@@ -1,11 +1,15 @@
 {
   "license": "MIT",
   "autoload": {
-    "psr-4": {}
+    "psr-4": {
+      "App\\": "app/"
+    }
   },
   "authors": [{
     "name": "Gonzalo",
     "email": "gon.pineiro@gmail.com"
   }],
-  "require": {}
+  "require": {
+    "vlucas/phpdotenv": "^5.3"
+  }
 }

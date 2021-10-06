@@ -1,1 +1,7 @@
-/vendor/
+.vscode/
+vendor/
+node_modules/
+.env
+archivos/
+projects_files/
+logs
