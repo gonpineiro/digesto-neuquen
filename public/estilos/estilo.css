@@ -15,6 +15,10 @@
   flex-wrap: wrap;
 }
 
+
+.card-container > a {
+  text-decoration: none !important;
+}
 .card {
   margin-left: 15px;
   width: 15rem;
@@ -29,6 +33,7 @@
   background: #F7F7F7;
   color: #686866;
 }
+
 
 /* Asteriscos rojos */
 .required:after {

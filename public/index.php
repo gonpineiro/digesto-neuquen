@@ -1,31 +1,30 @@
 <?php
-include_once '../app/config/config.php';
+include 'app/config/config.php';
 
-if (isset($_GET['SESSIONKEY'])) {
-    $_SESSION['app'] = $_GET['APP'];
-    $_SESSION['token'] = $_GET['SESSIONKEY'];
-    include UTIL_PATH . '/WSWebLogin.php';
+use App\utils\RenderHtml;
 
-    if (!isset($_SESSION['usuario']) or $_SESSION['usuario']['error'] != (null || '')) {
-        header('Location: ' . WEBLOGIN);
-        exit();
-    }
+$html = new RenderHtml();
+?>
 
-    foreach ($_SESSION['usuario']['apps'] as $apps) {
-        if ($apps['id'] == APPID && $apps['userProfiles']) {
-            $_SESSION['userProfiles'] = $apps['userProfiles'];
-        }
-    }
+<?php include './public/views/common/header.php' ?>
 
-    /* Entorno de prueba */
-    if (!PROD) $_SESSION['userProfiles'] = 3;
+<img src="./public/assets/banner.jpeg" alt="banner" width="50%">
+<div class="container">
+    <h1>Digesto</h1>
+    <div class="card-container mx-auto justify-content-center">
+        <?= $html->simpleCard('Estatuto', 'Descripción') ?>
+        <?= $html->simpleCard('Decretos', 'Descripción') ?>
+        <?= $html->simpleCard('Ediciones Especiales', 'Descripción') ?>
+        <?= $html->simpleCard('Odenanzas', 'Descripción') ?>
+        <?= $html->simpleCard('Carta Organica', 'Descripción') ?>
+        <?= $html->simpleCard('Disposiciones', 'Descripción') ?>
+        <?= $html->simpleCard('Edictos', 'Descripción') ?>
+        <?= $html->simpleCard('Resoluciones', 'Descripción') ?>
+        <?= $html->simpleCard('Boletin Oficial', 'Descripción') ?>
+        <?= $html->simpleCard('Resoluciones Consejo Deliberante', 'Descripción') ?>
+        <?= $html->simpleCard('Reglamento Sindicatura Municipal', 'Descripción') ?>
+        <?= $html->simpleCard('Resolucion IMUH', 'Descripción') ?>
+    </div>
+</div>
 
-    if ($_SESSION['userProfiles'] != 3) {
-        header('Location: ' . WEBLOGIN);
-    } else {
-        header('Location: views/menu/index.php');
-        exit();
-    }
-}
-header('Location: ' . WEBLOGIN);
-exit();
+<?php include './public/views/common/footer.php' ?>
