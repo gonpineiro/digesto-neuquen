@@ -1,0 +1,11 @@
+{
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {}
+  },
+  "authors": [{
+    "name": "Gonzalo",
+    "email": "gon.pineiro@gmail.com"
+  }],
+  "require": {}
+}
