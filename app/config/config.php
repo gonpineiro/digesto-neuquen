@@ -8,7 +8,7 @@ header("Cache-Control: no-cache, must-revalidate ");
 include_once 'paths.php';
 
 /* AutoLoad composer & local */
-require ROOT_PATH . 'app/utils/funciones.php';
+include_once ROOT_PATH . 'app/utils/funciones.php';
 require ROOT_PATH . 'vendor/autoload.php';
 
 /* Carga del DOTENV */

@@ -346,7 +346,7 @@ function cargarLogFile($tipo, $msg, $class, $function)
     if (!file_exists($path)) mkdir($path, 0755, true);
 
     $msg = " | $msg | Clase: $class | Function: $function";
-    
+
     $logFile = fopen($path . date("Ymd") . ".log", 'a') or die("Error creando archivo");
     fwrite($logFile, "\n" . date("d/m/Y H:i:s") . "$msg") or die("Error escribiendo en el archivo");
     fclose($logFile);
