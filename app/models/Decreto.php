@@ -10,7 +10,7 @@ class Decreto extends Base
     protected $subCodigo = "AÑO ";
     protected $anio;
     protected $codigo;
-    protected $errorAnio = 'Error no se encuentra el año';
+    protected $errorAnio = 'No se encuentra el año';
 
     public function __construct(int $anio, String $codigo = null)
     {
