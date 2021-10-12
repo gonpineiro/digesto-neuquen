@@ -3,7 +3,7 @@ include '../../../app/config/config.php';
 
 use App\Models\Decreto;
 
-error_reporting(0);
+/* error_reporting(0); */
 if (isset($_POST) && isset($_POST["post_decreto"])) {
     session_unset();
     $decreto = new Decreto($_POST['anio'], $_POST['codigo']);
