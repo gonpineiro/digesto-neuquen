@@ -8,31 +8,6 @@ class Decreto extends Base
 {
     protected $model = "decretos\\";
     protected $subCodigo = "AÑO ";
-    protected $anio;
-    protected $codigo;
-    protected $errorAnio = 'No se encuentra el año';
-
-    public function __construct(int $anio, String $codigo = null)
-    {
-        $this->anio = $anio;
-        $this->codigo = substr($codigo, 0, 1) . '-' . substr($codigo, 1) . '-';
-    }
-
-    protected function getAllFilesByYear()
-    {
-        $path = $this->basePath . $this->model . $this->subCodigo . $this->anio;
-        $files = [];
-        if ($fh = opendir($path)) {
-            while (false !== ($fi = readdir($fh))) {
-                if ($fh !== '.' || $fh !== '..') array_push($files, $fi);
-            }
-            unset($files[0]);
-            unset($files[1]);
-            return $files;
-        } else {
-            return $this->errorAnio;
-        }
-    }
 
     public function getFile()
     {
@@ -45,11 +20,16 @@ class Decreto extends Base
             });
 
             if (count($file) > 0) {
+                $file = array_values($file);
+                $file = [
+                    'name' => $file[0],
+                    'path' => $this->path . '\\'.$file[0],
+                    'base64' => convertirABase64($this->path . '\\'.$file[0])
+                ];
                 return $file;
-            }else{
+            } else {
                 return 'El archivo no existe';
             }
-
         } else {
             return $this->errorAnio;
         }

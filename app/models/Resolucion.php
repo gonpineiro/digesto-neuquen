@@ -1,38 +1,18 @@
 <?php
 
-/**
- * This is the model class for table "Habilitaciones".
- * @property array $habilitacion
- */
-class Habilitacion extends Base
+namespace App\Models;
+
+class Resolucion extends Base
 {
-    public $habilitacion;
-    protected $habilitacionID;
-    protected $habTipo;
-    protected $patente;
-    protected $error;
+    protected $model = "resoluciones\\";
+    protected $anio;
+    protected $codigo;
+    protected $errorAnio = 'No se encuentra el año';
 
-    public function __construct(string $habilitacionID, string $habTipo)
+    public function __construct(int $anio, String $codigo = null)
     {
-        $params = ['action' => 0, 'habilitacionID' => $habilitacionID, 'habTipo' => $habTipo];
-        $this->habilitacionID = $habilitacionID;
-        $this->habTipo = $habTipo;
-
-        $response = $this->callWebService($params, API_URL);
-
-        if ($response['error'] != null) {
-            $this->error = $response['error'];
-        } else {
-            if ($habTipo === 'TAX' || $habTipo === 'REM') {
-                $this->habilitacion = $response['value'];
-                $this->patente = $this->habilitacion[0]['patente'];
-                $this->habilitacion = array_values($this->limpiarHabilitacion())[0];
-                $this->extractDoc($this->habilitacion['titularEmpresa']);
-                $this->formatDate();
-            } else {
-                $this->habilitacion = null;
-            }
-        }
+        $this->anio = $anio;
+        $this->codigo = substr($codigo, 0, 1) . '-' . substr($codigo, 1) . '-';
     }
 
     public function getHabilitacion()

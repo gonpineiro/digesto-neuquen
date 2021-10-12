@@ -3,14 +3,13 @@ include '../../../app/config/config.php';
 
 use App\Models\Decreto;
 
+error_reporting(0);
 if (isset($_POST) && isset($_POST["post_decreto"])) {
     session_unset();
-
-    //$decreto = new Decreto(1988, 'D0141');
     $decreto = new Decreto($_POST['anio'], $_POST['codigo']);
     $file = $decreto->getFile();
     if (is_array($file)) {
-        # code...
+        $_SESSION['name']  = $file['name'];
     } else {
         $_SESSION['error'] = $file;
     }
@@ -18,6 +17,7 @@ if (isset($_POST) && isset($_POST["post_decreto"])) {
 
 ?>
 <?php include '../common/header.php' ?>
+
 <div class="container" style="width: 50%">
     <h1>Busqueda de Decretos</h1>
     <form method="post">
@@ -34,12 +34,9 @@ if (isset($_POST) && isset($_POST["post_decreto"])) {
         </div>
     </form>
 
+    <?php include '../common/error.php' ?>
 
-    <?php if (isset($_SESSION['error'])) { ?>
-        <div class="alert alert-danger" role="alert">
-            <?= $_SESSION['error'] ?>
-        </div>
-    <?php } ?>
+    <?php include '../common/downloadInput.php' ?>
 
 </div>
 <?php include '../common/footer.php' ?>
