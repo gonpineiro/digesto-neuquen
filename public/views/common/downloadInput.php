@@ -1,4 +1,4 @@
-<?php if (isset($file['name'])) { ?>
+<?php if (!isset($_SESSION['error']) && $ready) { ?>
     <form action="../download.php" method="POST">
         <div class="mb-3" style="width: 100%">
             <button class="btn btn-primary" style="width: 100%">
