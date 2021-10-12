@@ -8,4 +8,5 @@ class Decreto extends Base
 {
     protected $model = "decretos\\";
     protected $subCodigo = "AÑO ";
+    protected $letra = "D";
 }

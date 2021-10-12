@@ -4,7 +4,8 @@ include '../../../app/config/config.php';
 use App\Models\Decreto;
 
 /* error_reporting(0); */
-if (isset($_POST) && isset($_POST["post_decreto"])) {
+
+if (isset($_POST) && isset($_POST["post"])) {
     session_unset();
     $decreto = new Decreto($_POST['anio'], $_POST['codigo']);
     $file = $decreto->getFile();
@@ -23,15 +24,13 @@ if (isset($_POST) && isset($_POST["post_decreto"])) {
     <form method="post">
         <div class="mb-3">
             <label for="codigo" class="form-label">Código</label>
-            <input type="text" class="form-control" id="codigo" placeholder="D0001" name="codigo" required>
+            <input type="text" class="form-control" id="codigo" placeholder="0001" pattern="\d{4}" name="codigo" required>
         </div>
         <div class="mb-3">
             <label for="anio" class="form-label">Año</label>
             <input type="number" class="form-control" id="anio" placeholder="1930" name="anio" required />
         </div>
-        <div class="mb-3" style="width: 100%">
-            <button class="btn btn-primary" type="submit" name="post_decreto" style="width: 100%">Buscar</button>
-        </div>
+        <?php include '../common/btn.php' ?>
     </form>
 
     <?php include '../common/error.php' ?>

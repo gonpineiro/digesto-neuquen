@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Base
 {
-    protected $basePath = "C:\\webapp\\digesto\\";
+    protected $basePath = BASE_FILE_PATH;
     protected $subCodigo = "";
     protected $anio;
     protected $codigo;
@@ -14,7 +14,7 @@ class Base
     public function __construct(int $anio, String $codigo = null)
     {
         $this->anio = $anio;
-        $this->codigo = substr($codigo, 0, 1) . '-' . substr($codigo, 1) . '-';
+        $this->codigo = $this->letra . '-' . $codigo . '-';
     }
 
     protected function getAllFilesByYear()
