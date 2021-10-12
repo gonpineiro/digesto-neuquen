@@ -3,7 +3,7 @@ include '../../../app/config/config.php';
 
 use App\Models\Resolucion;
 
-/* error_reporting(0); */
+if (!PROD) error_reporting(0);
 
 if (isset($_POST) && isset($_POST["post"])) {
     session_unset();
@@ -30,7 +30,7 @@ if (isset($_POST) && isset($_POST["post"])) {
             <label for="anio" class="form-label">Año</label>
             <input type="number" class="form-control" id="anio" placeholder="1930" name="anio" required />
         </div>
-        <?php include '../common/btn.php' ?>
+        <?php include '../common/submitBackBtns.php' ?>
     </form>
 
     <?php include '../common/error.php' ?>
