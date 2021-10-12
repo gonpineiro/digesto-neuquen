@@ -25,4 +25,4 @@ define('APPNAME', $_ENV['APPNAME']);
 /* Configuracion de URLs */
 define('WEBLOGIN', PROD ? 'https://weblogin.muninqn.gov.ar' : 'http://200.85.183.194:90');
 
-define('BASE_FILE_PATH', PROD ? $_ENV['BASE_FILE_PATH_PROD'] : $_ENV['BASE_FILE_PATH_DEV']);
+define('BASE_FILE_PATH', PROD ? '../../../../../digesto' : $_ENV['BASE_FILE_PATH_DEV']);

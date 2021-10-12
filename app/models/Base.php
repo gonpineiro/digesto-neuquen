@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Base
 {
-    protected $basePath = BASE_FILE_PATH;
+    protected $basePath = '../../../../../digesto';
     protected $subCodigo = "";
     protected $anio;
     protected $codigo;
