@@ -55,7 +55,7 @@ if (isset($_POST) && isset($_POST["post"])) {
     <?php
     if (!isset($_SESSION['error']) && $ready) {
         foreach ($files as $file) {
-            echo $html->downloadForm($file['name'], $file['base64']);
+            echo $html->downloadForm($file['name'], $file['path']);
         }
     } 
     ?>

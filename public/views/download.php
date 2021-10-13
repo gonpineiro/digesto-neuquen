@@ -1,8 +1,12 @@
 <?php
-if (isset($_POST['base64'])) {
-    $base64 = $_POST['base64'];
-    $decoded = base64_decode($base64);
+if (isset($_POST['path'])) {
+    $path = $_POST['path'];
     $file = $_POST['name'];
+
+    $contenidoBinario = file_get_contents($path);
+    $base64 = base64_encode($contenidoBinario);
+
+    $decoded = base64_decode($base64);
     file_put_contents($file, $decoded);
     
     if (file_exists($file)) {

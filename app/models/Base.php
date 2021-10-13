@@ -72,8 +72,7 @@ class Base
             foreach ($files as $file) {
                 array_push($formatFiles, [
                     'name' => $file,
-                    'path' => $this->path . '\\' . $file,
-                    'base64' => convertirABase64($this->path . '\\' . $file)
+                    'path' => $this->path . '\\' . $file
                 ]);
             }
             return $formatFiles;

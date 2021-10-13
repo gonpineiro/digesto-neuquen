@@ -32,13 +32,13 @@ class RenderHtml
         return $slug;
     }
 
-    public function downloadForm($name, $base64)
+    public function downloadForm($name, $path)
     {
         return "<form action='../download.php' method='POST'>
                     <div class='mb-3' style='width: 100%'>
                         <button class='btn btn-primary' style='width: 100%'>
                             Descargar $name</button>
-                        <input type='text' value='$base64' hidden name='base64'>
+                        <input type='text' value='$path' hidden name='path'>
                         <input type='text' value='$name' hidden name='name'>
                     </div>
                 </form>";
