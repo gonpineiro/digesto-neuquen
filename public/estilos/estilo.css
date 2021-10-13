@@ -73,7 +73,7 @@ input[type="number"] {
 }
 body {
   background-size: 100%;
-  background: url(https://weblogin.muninqn.gov.ar/WebResources/images/fondo.jpg)
+  background: url(http://storage2.muninqn.local:82/webResources/images/fondo.jpg)
     0% -36%;
   background-repeat: no-repeat;
   background-attachment: fixed;

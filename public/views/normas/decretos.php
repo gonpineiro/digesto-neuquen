@@ -3,8 +3,6 @@ include '../../../app/config/config.php';
 
 use App\Models\Decreto;
 
-if (!PROD) error_reporting(0);
-
 if (isset($_POST) && isset($_POST["post"])) {
     session_unset();
     $decreto = new Decreto($_POST['anio'], $_POST['codigo']);
@@ -14,6 +12,8 @@ if (isset($_POST) && isset($_POST["post"])) {
     } else {
         $_SESSION['error'] = $file;
     }
+}else{
+    session_unset();
 }
 
 ?>

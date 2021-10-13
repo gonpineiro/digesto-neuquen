@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Base
 {
-    protected $basePath = '../../../../../digesto';
+    protected $basePath = BASE_FILE_PATH;
     protected $subCodigo = "";
     protected $anio;
     protected $codigo;
@@ -20,13 +20,12 @@ class Base
     protected function getAllFilesByYear()
     {
         $this->path = $this->basePath . $this->model . $this->subCodigo . $this->anio;
+
         $files = [];
         if ($fh = opendir($this->path)) {
             while (false !== ($fi = readdir($fh))) {
                 if ($fh !== '.' || $fh !== '..') array_push($files, $fi);
             }
-            unset($files[0]);
-            unset($files[1]);
             return $files;
         } else {
             return $this->errorAnio;

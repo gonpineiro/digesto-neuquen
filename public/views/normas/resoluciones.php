@@ -14,6 +14,8 @@ if (isset($_POST) && isset($_POST["post"])) {
     } else {
         $_SESSION['error'] = $file;
     }
+}else{
+    session_unset();
 }
 
 ?>
