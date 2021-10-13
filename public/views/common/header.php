@@ -11,4 +11,4 @@
 </head>
 
 <body>
-    <img src="../../assets/banner.jpeg" alt="banner" width="50%">
+    <img class="banner" src="../../assets/banner.jpeg" alt="banner" width="50%">

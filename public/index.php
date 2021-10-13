@@ -19,7 +19,7 @@ $html = new RenderHtml();
 </head>
 
 <body>
-    <img src="./public/assets/banner.jpeg" alt="banner" width="50%">
+    <img class="banner" src="./public/assets/banner.jpeg" alt="banner">
     <div class="container">
         <h1>Digesto</h1>
         <div class="card-container mx-auto justify-content-center">
