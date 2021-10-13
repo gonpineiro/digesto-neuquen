@@ -22,7 +22,6 @@ if (!PROD) error_reporting(0);
 
 /* AppID */
 define('APPID', PROD ? 64 : 64);
-define('APP_NAME', $_ENV['APP_NAME']);
 
 /* Configuracion de URLs */
 define('WEBLOGIN', PROD ? 'https://weblogin.muninqn.gov.ar' : 'http://200.85.183.194:90');

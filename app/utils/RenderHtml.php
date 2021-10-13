@@ -22,4 +22,16 @@ class RenderHtml
         $slug = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $str))))), $delimiter));
         return $slug;
     }
+
+    public function downloadForm($name, $base64)
+    {
+        return "<form action='../download.php' method='POST'>
+                    <div class='mb-3' style='width: 100%'>
+                        <button class='btn btn-primary' style='width: 100%'>
+                            Descargar $name</button>
+                        <input type='text' value='$base64' hidden name='base64'>
+                        <input type='text' value='$name' hidden name='name'>
+                    </div>
+                </form>";
+    }
 }

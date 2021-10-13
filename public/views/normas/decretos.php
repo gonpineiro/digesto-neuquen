@@ -7,10 +7,12 @@ if (isset($_POST) && isset($_POST["post"])) {
     session_unset();
     $decreto = new Decreto($_POST['anio'], $_POST['codigo']);
     $file = $decreto->getFile();
-    if (is_array($file)) {
-        $_SESSION['name']  = $file['name'];
-    } else {
+
+    if (!is_array($file)) {
         $_SESSION['error'] = $file;
+        $ready = false;
+    }else{
+        $ready = true;
     }
 }else{
     session_unset();

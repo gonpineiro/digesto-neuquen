@@ -7,12 +7,16 @@ if (!PROD) error_reporting(0);
 
 if (isset($_POST) && isset($_POST["post"])) {
     session_unset();
+
     $resolucion = new Resolucion($_POST['anio'], $_POST['codigo']);
+    
     $file = $resolucion->getFile();
-    if (is_array($file)) {
-        $_SESSION['name']  = $file['name'];
-    } else {
+    
+    if (!is_array($file)) {
         $_SESSION['error'] = $file;
+        $ready = false;
+    }else{
+        $ready = true;
     }
 }else{
     session_unset();

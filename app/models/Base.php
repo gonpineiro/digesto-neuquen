@@ -11,10 +11,25 @@ class Base
     protected $errorAnio = 'No se encuentra el año';
     public $path;
 
-    public function __construct(int $anio, String $codigo = null)
+    public function __construct(int $anio = null, String $codigo = null)
     {
         $this->anio = $anio;
         $this->codigo = $this->letra . '-' . $codigo . '-';
+    }
+
+    protected function getAllFiles()
+    {
+        $this->path = $this->basePath . $this->model;
+
+        $files = [];
+        if ($fh = opendir($this->path)) {
+            while (false !== ($fi = readdir($fh))) {
+                if ($fh !== '.' || $fh !== '..') array_push($files, $fi);
+            }
+            return $files;
+        } else {
+            return $this->errorAnio;
+        }
     }
 
     protected function getAllFilesByYear()
@@ -31,6 +46,7 @@ class Base
             return $this->errorAnio;
         }
     }
+
 
     public function getBasePath()
     {
