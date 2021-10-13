@@ -4,10 +4,19 @@ namespace App\utils;
 
 class RenderHtml
 {
-    public function simpleCard($nombre, $descipcion)
+    public function simpleCard($nombre, $descipcion, $link = null)
     {
         $slug = $this->slug($nombre) . '.php';
-        return "<a href=public/views/normas/$slug>
+
+        if ($link) {
+            $href = $link;
+            $target = '_blank';
+        } else {
+            $target = '';
+            $href = "public/views/normas/$slug";
+        }
+
+        return "<a href=$href target=$target>
                     <div class='card'>
                         <div class='card-body'>
                             <h5 class='card-title'>$nombre</h5>

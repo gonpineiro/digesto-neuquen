@@ -3,8 +3,9 @@ include '../../../app/config/config.php';
 
 use App\Models\Resolucion;
 
-$resolucion = new Resolucion($_POST['anio'], $_POST['codigo']);
+$resolucion = new Resolucion();
 $years = $resolucion->getListYear();
+$ready = false;
 
 if (isset($_POST) && isset($_POST["post"])) {
     session_unset();

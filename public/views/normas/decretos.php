@@ -5,6 +5,7 @@ use App\Models\Decreto;
 
 $decreto = new Decreto();
 $years = $decreto->getListYear();
+$ready = false;
 
 if (isset($_POST) && isset($_POST["post"])) {
     session_unset();

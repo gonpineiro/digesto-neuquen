@@ -20,19 +20,18 @@ $html = new RenderHtml();
 
 <body>
     <img src="./public/assets/banner.jpeg" alt="banner" width="50%">
-
     <div class="container">
         <h1>Digesto</h1>
         <div class="card-container mx-auto justify-content-center">
             <?= $html->simpleCard('Decretos', 'Descripción') ?>
             <?= $html->simpleCard('Resoluciones', 'Descripción') ?>
-            <?= $html->simpleCard('Odenanzas', 'Descripción') ?>
+            <?= $html->simpleCard('Odenanzas', 'Descripción', 'http://www.cdnqn.gov.ar/inf_legislativa/digesto/cgi-bin/shared/form_ord_search.php') ?>
+            <?= $html->simpleCard('Boletin Oficial', 'Descripción', 'https://www.neuquencapital.gov.ar/boletin-oficial/') ?>
             <!-- <?= $html->simpleCard('Estatuto', 'Descripción') ?>
         <?= $html->simpleCard('Ediciones Especiales', 'Descripción') ?>
         <?= $html->simpleCard('Carta Organica', 'Descripción') ?>
         <?= $html->simpleCard('Disposiciones', 'Descripción') ?>
         <?= $html->simpleCard('Edictos', 'Descripción') ?>
-        <?= $html->simpleCard('Boletin Oficial', 'Descripción') ?>
         <?= $html->simpleCard('Resoluciones Consejo Deliberante', 'Descripción') ?>
         <?= $html->simpleCard('Reglamento Sindicatura Municipal', 'Descripción') ?>
         <?= $html->simpleCard('Resolucion IMUH', 'Descripción') ?> -->
