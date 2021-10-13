@@ -14,9 +14,9 @@ class Ordenanza extends Base
         $this->codigo = $codigo;
     }
 
-    public function getFile()
+    /* public function getFile()
     {
-        $files = $this->getAllFiles();
+        $files = $this->getAllFolderRoot();
 
         $files = array_filter($files, function ($string) {
             return str_contains($string, $this->codigo);
@@ -36,5 +36,5 @@ class Ordenanza extends Base
         } else {
             return 'El archivo no existe';
         }
-    }
+    } */
 }

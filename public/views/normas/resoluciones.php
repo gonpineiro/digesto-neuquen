@@ -2,6 +2,7 @@
 include '../../../app/config/config.php';
 
 use App\Models\Resolucion;
+use App\utils\RenderHtml;
 
 $resolucion = new Resolucion();
 $years = $resolucion->getListYear();
@@ -13,15 +14,17 @@ if (isset($_POST) && isset($_POST["post"])) {
     $resolucion->setAnio($_POST['anio']);
     $resolucion->setCodigo($_POST['codigo']);
 
-    $file = $resolucion->getFile();
-    
-    if (!is_array($file)) {
-        $_SESSION['error'] = $file;
+    $html = new RenderHtml();
+
+    $files = $resolucion->getFile();
+
+    if (!is_array($files)) {
+        $_SESSION['error'] = $files;
         $ready = false;
-    }else{
+    } else {
         $ready = true;
     }
-}else{
+} else {
     session_unset();
 }
 
@@ -49,7 +52,13 @@ if (isset($_POST) && isset($_POST["post"])) {
 
     <?php include '../common/error.php' ?>
 
-    <?php include '../common/downloadInput.php' ?>
+    <?php
+    if (!isset($_SESSION['error']) && $ready) {
+        foreach ($files as $file) {
+            echo $html->downloadForm($file['name'], $file['base64']);
+        }
+    }
+    ?>
 
 </div>
 <?php include '../common/footer.php' ?>

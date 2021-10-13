@@ -9,7 +9,7 @@ class Base
     protected $anio;
     protected $codigo;
     protected $errorAnio = 'No se encuentra el año';
-    public $path;
+    protected $digitos;
 
     public function setAnio(int $anio)
     {
@@ -18,7 +18,7 @@ class Base
 
     public function setCodigo(String $codigo)
     {
-        $this->codigo = $this->letra . '-' . $codigo . '-';
+        $this->codigo = $codigo;
     }
 
     protected function getAllFolderRoot()
@@ -60,27 +60,25 @@ class Base
     {
         $files = $this->getAllFilesByYear();
 
-        if ($files !== $this->errorAnio) {
-            $file = array_filter($files, function ($string) {
-                $subString = $this->codigo . substr($this->anio, 2);
-                $subString = strtolower($subString);
-                $string = strtolower($string);
-                return str_contains($string, $subString);
-            });
+        $files = array_filter($files, function ($string) {
+            $subString = strtolower($this->codigo);
+            $string = strtolower($string);
+            return str_contains($string, $subString);
+        });
 
-            if (count($file) > 0) {
-                $file = array_values($file);
-                $file = [
-                    'name' => $file[0],
-                    'path' => $this->path . '\\' . $file[0],
-                    'base64' => convertirABase64($this->path . '\\' . $file[0])
-                ];
-                return $file;
-            } else {
-                return 'El archivo no existe';
+        if (count($files) > 0) {
+            $formatFiles = [];
+            $files = array_values($files);
+            foreach ($files as $file) {
+                array_push($formatFiles, [
+                    'name' => $file,
+                    'path' => $this->path . '\\' . $file,
+                    'base64' => convertirABase64($this->path . '\\' . $file)
+                ]);
             }
+            return $formatFiles;
         } else {
-            return $this->errorAnio;
+            return 'El archivo no existe';
         }
     }
 }

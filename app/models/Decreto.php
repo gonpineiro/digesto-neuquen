@@ -9,7 +9,7 @@ class Decreto extends Base
     protected $model = "decretos\\";
     protected $subCodigo = "AÑO ";
     protected $letra = "D";
-
+    protected $digitos = 4;
 
     public function getListYear()
     {

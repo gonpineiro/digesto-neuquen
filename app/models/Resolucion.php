@@ -6,12 +6,10 @@ class Resolucion extends Base
 {
     protected $model = "resoluciones\\";    
     protected $letra = "R";
+    protected $digitos = 4;
 
     public function getListYear()
     {
-        $tmp = array();
-        $years = $this->getAllFolderRoot();
-
-        return $years;
+        return $this->getAllFolderRoot();
     }
 }

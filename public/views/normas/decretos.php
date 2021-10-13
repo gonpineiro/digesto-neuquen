@@ -2,6 +2,7 @@
 include '../../../app/config/config.php';
 
 use App\Models\Decreto;
+use App\utils\RenderHtml;
 
 $decreto = new Decreto();
 $years = $decreto->getListYear();
@@ -12,11 +13,13 @@ if (isset($_POST) && isset($_POST["post"])) {
 
     $decreto->setAnio($_POST['anio']);
     $decreto->setCodigo($_POST['codigo']);
+    
+    $html = new RenderHtml();
 
-    $file = $decreto->getFile();
+    $files = $decreto->getFile();
 
-    if (!is_array($file)) {
-        $_SESSION['error'] = $file;
+    if (!is_array($files)) {
+        $_SESSION['error'] = $files;
         $ready = false;
     } else {
         $ready = true;
@@ -33,7 +36,7 @@ if (isset($_POST) && isset($_POST["post"])) {
     <form method="post">
         <div class="mb-3">
             <label for="codigo" class="form-label">Código</label>
-            <input type="text" class="form-control" id="codigo" placeholder="0001" pattern="\d{4}" name="codigo" required>
+            <input type="text" class="form-control" id="codigo" placeholder="0001" name="codigo" required>
         </div>
         <div class="mb-3">
             <label for="anio" class="form-label">Año</label>
@@ -49,7 +52,13 @@ if (isset($_POST) && isset($_POST["post"])) {
 
     <?php include '../common/error.php' ?>
 
-    <?php include '../common/downloadInput.php' ?>
+    <?php
+    if (!isset($_SESSION['error']) && $ready) {
+        foreach ($files as $file) {
+            echo $html->downloadForm($file['name'], $file['base64']);
+        }
+    } 
+    ?>
 
 </div>
 <?php include '../common/footer.php' ?>
