@@ -26,4 +26,4 @@ define('APPID', PROD ? 64 : 64);
 /* Configuracion de URLs */
 define('WEBLOGIN', PROD ? 'https://weblogin.muninqn.gov.ar' : 'http://200.85.183.194:90');
 
-define('BASE_FILE_PATH', !PROD ? '../../../../../digesto' : $_ENV['BASE_FILE_PATH_PROD']);
+define('BASE_FILE_PATH', !PROD ? $_ENV['BASE_FILE_PATH_DEV'] : $_ENV['BASE_FILE_PATH_PROD']);

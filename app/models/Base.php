@@ -11,24 +11,28 @@ class Base
     protected $errorAnio = 'No se encuentra el año';
     public $path;
 
-    public function __construct(int $anio = null, String $codigo = null)
+    public function setAnio(int $anio)
     {
         $this->anio = $anio;
+    }
+
+    public function setCodigo(String $codigo)
+    {
         $this->codigo = $this->letra . '-' . $codigo . '-';
     }
 
-    protected function getAllFiles()
+    protected function getAllFolderRoot()
     {
         $this->path = $this->basePath . $this->model;
 
         $files = [];
         if ($fh = opendir($this->path)) {
             while (false !== ($fi = readdir($fh))) {
-                if ($fh !== '.' || $fh !== '..') array_push($files, $fi);
-            }
-            return $files;
-        } else {
-            return $this->errorAnio;
+                if ($fi != 'index.asp') array_push($files, $fi);
+            };
+            unset($files[0]);
+            unset($files[1]);
+            return array_values($files);
         }
     }
 
@@ -46,7 +50,6 @@ class Base
             return $this->errorAnio;
         }
     }
-
 
     public function getBasePath()
     {

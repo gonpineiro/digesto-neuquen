@@ -3,13 +3,15 @@ include '../../../app/config/config.php';
 
 use App\Models\Resolucion;
 
-if (!PROD) error_reporting(0);
+$resolucion = new Resolucion($_POST['anio'], $_POST['codigo']);
+$years = $resolucion->getListYear();
 
 if (isset($_POST) && isset($_POST["post"])) {
     session_unset();
 
-    $resolucion = new Resolucion($_POST['anio'], $_POST['codigo']);
-    
+    $resolucion->setAnio($_POST['anio']);
+    $resolucion->setCodigo($_POST['codigo']);
+
     $file = $resolucion->getFile();
     
     if (!is_array($file)) {
@@ -34,7 +36,12 @@ if (isset($_POST) && isset($_POST["post"])) {
         </div>
         <div class="mb-3">
             <label for="anio" class="form-label">Año</label>
-            <input type="number" class="form-control" id="anio" placeholder="1930" name="anio" required />
+            <select class="form-select" name="anio" required>
+                <option selected>Seleccione el año</option>
+                <?php foreach ($years as $year) { ?>
+                    <option value="<?= $year ?>"><?= $year ?></option>
+                <?php } ?>
+            </select>
         </div>
         <?php include '../common/submitBackBtns.php' ?>
     </form>

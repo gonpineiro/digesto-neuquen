@@ -3,18 +3,24 @@ include '../../../app/config/config.php';
 
 use App\Models\Decreto;
 
+$decreto = new Decreto();
+$years = $decreto->getListYear();
+
 if (isset($_POST) && isset($_POST["post"])) {
     session_unset();
-    $decreto = new Decreto($_POST['anio'], $_POST['codigo']);
+
+    $decreto->setAnio($_POST['anio']);
+    $decreto->setCodigo($_POST['codigo']);
+
     $file = $decreto->getFile();
 
     if (!is_array($file)) {
         $_SESSION['error'] = $file;
         $ready = false;
-    }else{
+    } else {
         $ready = true;
     }
-}else{
+} else {
     session_unset();
 }
 
@@ -30,7 +36,12 @@ if (isset($_POST) && isset($_POST["post"])) {
         </div>
         <div class="mb-3">
             <label for="anio" class="form-label">Año</label>
-            <input type="number" class="form-control" id="anio" placeholder="1930" name="anio" required />
+            <select class="form-select" name="anio" required>
+                <option selected>Seleccione el año</option>
+                <?php foreach ($years as $year) { ?>
+                    <option value="<?= $year ?>"><?= $year ?></option>
+                <?php } ?>
+            </select>
         </div>
         <?php include '../common/submitBackBtns.php' ?>
     </form>
