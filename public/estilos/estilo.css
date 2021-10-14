@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap");
 
 /* Proyecto Digesto */
+header{
+  height:50px;
+  width:100%;
+  background-color: white;
+}
 
 .banner {
   display: block;
@@ -39,14 +44,25 @@
   background: #F7F7F7;
   color: #686866;
 }
-.btn-warning {
+.btn-download {
+  padding: 5px;
+  line-height: 0;
   display: inline-block;;
   width: 1.5rem !important;
   height: 1.5rem !important;
   margin-left: auto;
   color: #000;
-  background-color: #ffc107;
-  border-color: #ffc107;
+}
+
+.back{
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height:3.75rem;
+  border-radius: 50%;
+  font-size: 3rem;
+  position: fixed;
+    bottom: 3rem;
+    right: 3rem;
 }
 
 

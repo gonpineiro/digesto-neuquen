@@ -31,59 +31,68 @@ if (isset($_POST) && isset($_POST["post"])) {
 ?>
 <?php include '../common/header.php' ?>
 
-<div class="container" style="width: 100%">
-    <div class="row">
-        <div class="col-5">
-            <h1 class="subtitle">Busqueda de Decretos</h1>
-            <form method="post">
-                <div class="mb-3">
-                    <label for="codigo" class="form-label">Código</label>
-                    <input type="text" class="form-control" id="codigo" placeholder="0001" name="codigo" required>
+<div class="container">
+    <div class="card" style="width: 100%; padding: 20px; background-color:#5997d1">
+        <h1 class="subtitle text-light" style="padding-top: 20px; padding-bottom: 30px">Búsqueda de Decretos</h1>
+    </div>
+</div>
+
+<div class="container" style="width: 75%; margin-top: -80px">
+    <div class="card" style="width: 100%; padding: 20px">
+        <form method="post">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" id="codigo" placeholder="Número de Decreto" name="codigo" required>
                 </div>
-                <div class="mb-3">
-                    <label for="anio" class="form-label">Año</label>
+                <div class="col">
                     <select class="form-select" name="anio" required>
-                        <option selected>Seleccione el año</option>
+                        <option value="">Seleccione el Año</option>
                         <?php foreach ($years as $year) { ?>
                             <option value="<?= $year ?>"><?= $year ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                <?php include '../common/submitBackBtns.php' ?>
-            </form>
-
-            <?php include '../common/error.php' ?>
-
-
-        </div>
-        <div class="col-7">
-            <h1 class="subtitle">Listado</h1>
-            <table class="table table-hover" id=table_id>
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Descargar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    if (!isset($_SESSION['error']) && $ready) {
-                        foreach ($files as $file) { ?>
-                            <tr>
-                                <td><?= $file['name'] ?></td>
-                                <td align="center"><?= $html->downloadForm($file['name'], $file['path']) ?></td>
-                            </tr>
-                    <?php
-                        }
-                    }
-                    ?>
-                </tbody>
-            </table>
-
-        </div>
-
+                <div class="col">
+                    <div class="col-8" style="width: 100%">
+                        <button class="btn btn-primary" type="submit" name="post" style="width: 100%">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-
-
+    <?php include '../common/error.php' ?>
 </div>
+
+<?php if ($ready) { ?>
+    <div class="container " style="width: 75%">
+        <h1 class="subtitle">Listado</h1>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Número de Decreto</th>
+                    <th scope="col">Archivo</th>
+                    <th scope="col">Descargar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if (!isset($_SESSION['error']) && $ready) {
+                    foreach ($files as $file) { ?>
+                        <tr>
+                            <td><?= $file['name'] ?></td>
+                            <td><?= $file['name'] ?></td>
+                            <td><?= $html->downloadForm($file['name'], $file['path']) ?></td>
+                        </tr>
+                <?php
+                    }
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+<?php } ?>
+
+
+<a href="/digestoapp/index.php" class="btn btn-primary back">←</a>
+
 <?php include '../common/footer.php' ?>

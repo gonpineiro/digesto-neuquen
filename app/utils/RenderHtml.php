@@ -35,8 +35,8 @@ class RenderHtml
     public function downloadForm($name, $path)
     {
         return "<form action='../download.php' method='POST'>
-                    <button class='btn btn-warning' style='width: 100%'>
-                        D</button>
+                    <button class='btn btn-primary btn-download' style='width: 100%'>
+                    ↓</button>
                     <input type='text' value='$path' hidden name='path'>
                     <input type='text' value='$name' hidden name='name'>
                 </form>";

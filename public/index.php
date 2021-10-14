@@ -19,9 +19,9 @@ $html = new RenderHtml();
 </head>
 
 <body>
-    <img class="banner" src="./public/assets/banner.jpeg" alt="banner">
+    <img class="banner" src="./public/assets/banner.svg" alt="banner">
     <div class="container">
-        <h1>Digesto</h1>
+        <h1  class="subtitle">Digesto</h1>
         <div class="card-container mx-auto justify-content-center">
             <?= $html->simpleCard('Decretos', 'Descripción') ?>
             <?= $html->simpleCard('Resoluciones', 'Descripción') ?>
