@@ -13,5 +13,5 @@
 
 <body>
     <header>
-        <img class="p-2" src="../../assets/banner.svg" alt="banner" style="height:40px;">
+        <img class="banner p-2" src="../../assets/banner.svg" alt="banner" style="height:40px;">
     </header>

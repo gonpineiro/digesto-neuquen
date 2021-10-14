@@ -1,19 +1,8 @@
 PROD=false
 
-DB_HOST=
-DB_USER=
-DB_PASS=
-DB_NAME=
-DB_PORT=
-DB_CHARSET=
+BASE_FILE_PATH_DEV=C:\\webapp\digesto\
+BASE_FILE_PATH_PROD=\\webapp\digesto\
 
-QR_URL_PROD=https://weblogin.muninqn.gov.ar/apps/
-QR_URL_DEV=http://200.85.183.194:90/apps/
+APP_NAME=digestoapp
 
-API_URL=https://weblogin.muninqn.gov.ar/api/mnqn
-API_URL_LIC=https://weblogin.muninqn.gov.ar/api_v1/mnqn
-API_TOKEN=
-
-DB_LOG_TABLE=deportes_log
-
-SSL_VERIFYPEER=false
+INDEX_URL=/digestoapp/index.php

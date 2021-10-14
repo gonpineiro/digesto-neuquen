@@ -23,18 +23,18 @@ $html = new RenderHtml();
     <div class="container">
         <h1  class="subtitle">Digesto</h1>
         <div class="card-container mx-auto justify-content-center">
-            <?= $html->simpleCard('Decretos', 'Descripción') ?>
-            <?= $html->simpleCard('Resoluciones', 'Descripción') ?>
-            <?= $html->simpleCard('Odenanzas', 'Descripción', 'http://www.cdnqn.gov.ar/inf_legislativa/digesto/cgi-bin/shared/form_ord_search.php') ?>
-            <?= $html->simpleCard('Boletin Oficial', 'Descripción', 'https://www.neuquencapital.gov.ar/boletin-oficial/') ?>
-            <!-- <?= $html->simpleCard('Estatuto', 'Descripción') ?>
-        <?= $html->simpleCard('Ediciones Especiales', 'Descripción') ?>
-        <?= $html->simpleCard('Carta Organica', 'Descripción') ?>
-        <?= $html->simpleCard('Disposiciones', 'Descripción') ?>
-        <?= $html->simpleCard('Edictos', 'Descripción') ?>
-        <?= $html->simpleCard('Resoluciones Consejo Deliberante', 'Descripción') ?>
-        <?= $html->simpleCard('Reglamento Sindicatura Municipal', 'Descripción') ?>
-        <?= $html->simpleCard('Resolucion IMUH', 'Descripción') ?> -->
+            <?= $html->simpleCard('Decretos', 'Ingresa →') ?>
+            <?= $html->simpleCard('Resoluciones', 'Ingresa →') ?>
+            <?= $html->simpleCard('Odenanzas', 'Ingresa →', 'http://www.cdnqn.gov.ar/inf_legislativa/digesto/cgi-bin/shared/form_ord_search.php') ?>
+            <?= $html->simpleCard('Boletin Oficial', 'Ingresa →', 'https://www.neuquencapital.gov.ar/boletin-oficial/') ?>
+            <!-- <?= $html->simpleCard('Estatuto', 'Ingresa →') ?>
+        <?= $html->simpleCard('Ediciones Especiales', 'Ingresa →') ?>
+        <?= $html->simpleCard('Carta Organica', 'Ingresa →') ?>
+        <?= $html->simpleCard('Disposiciones', 'Ingresa →') ?>
+        <?= $html->simpleCard('Edictos', 'Ingresa →') ?>
+        <?= $html->simpleCard('Resoluciones Consejo Deliberante', 'Ingresa →') ?>
+        <?= $html->simpleCard('Reglamento Sindicatura Municipal', 'Ingresa →') ?>
+        <?= $html->simpleCard('Resolucion IMUH', 'Ingresa →') ?> -->
         </div>
     </div>
 

@@ -15,6 +15,8 @@ require ROOT_PATH . 'vendor/autoload.php';
 $dotenv = \Dotenv\Dotenv::createImmutable(ROOT_PATH);
 $dotenv->load();
 
+define('INDEX_URL', $_ENV['INDEX_URL']);
+
 /* Modo produccion: true */
 define('PROD', $_ENV['PROD'] == 'true' ? true : false);
 
