@@ -18,7 +18,11 @@ class Base
 
     public function setCodigo(String $codigo)
     {
-        $this->codigo = $codigo;
+        $codigoLen = strlen($codigo);
+        for ($i=$codigoLen; $i < $this->digitos; $i++) { 
+            $codigo = "0" . $codigo;
+        }
+        $this->codigo = $this->letra . '-' . $codigo . '-';
     }
 
     protected function getAllFolderRoot()

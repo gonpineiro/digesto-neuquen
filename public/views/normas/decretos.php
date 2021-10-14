@@ -33,7 +33,7 @@ if (isset($_POST) && isset($_POST["post"])) {
 
 <div class="container" style="width: 100%">
     <div class="row">
-        <div class="col">
+        <div class="col-5">
             <h1 class="subtitle">Busqueda de Decretos</h1>
             <form method="post">
                 <div class="mb-3">
@@ -56,9 +56,9 @@ if (isset($_POST) && isset($_POST["post"])) {
 
 
         </div>
-        <div class="col">
+        <div class="col-7">
             <h1 class="subtitle">Listado</h1>
-            <table class="table table-hover">
+            <table class="table table-hover" id=table_id>
                 <thead>
                     <tr>
                         <th scope="col">Nombre</th>
@@ -71,7 +71,7 @@ if (isset($_POST) && isset($_POST["post"])) {
                         foreach ($files as $file) { ?>
                             <tr>
                                 <td><?= $file['name'] ?></td>
-                                <td><?= $html->downloadForm($file['name'], $file['path']) ?></td>
+                                <td align="center"><?= $html->downloadForm($file['name'], $file['path']) ?></td>
                             </tr>
                     <?php
                         }
@@ -79,13 +79,6 @@ if (isset($_POST) && isset($_POST["post"])) {
                     ?>
                 </tbody>
             </table>
-            <?php
-            if (!isset($_SESSION['error']) && $ready) {
-                foreach ($files as $file) {
-                    echo $html->downloadForm($file['name'], $file['path']);
-                }
-            }
-            ?>
 
         </div>
 
