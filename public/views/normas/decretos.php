@@ -93,6 +93,6 @@ if (isset($_POST) && isset($_POST["post"])) {
 <?php } ?>
 
 
-<a href="/digestoapp/index.php" class="btn btn-primary back">←</a>
+<a href="/apps/digestoapp/index.php" class="btn btn-primary back">←</a>
 
 <?php include '../common/footer.php' ?>
