@@ -54,7 +54,7 @@ if (isset($_POST) && isset($_POST["post"])) {
                 </div>
                 <div class="col">
                     <div class="col-8" style="width: 100%">
-                        <button class="btn btn-primary" type="submit" name="post" style="width: 100%">Buscar</button>
+                        <button class="btn btn-primary" type="submit" name="post" style="width: 100%"><i class="fas fa-search"></i> Buscar</button>
                     </div>
                 </div>
             </div>
@@ -65,11 +65,12 @@ if (isset($_POST) && isset($_POST["post"])) {
 
 <?php if ($ready) { ?>
     <div class="container " style="width: 75%">
-        <h1 class="subtitle">Listado</h1>
+        <h1 class="subtitle">Resultado de la búsqueda</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
                     <th scope="col">Número de Decreto</th>
+                    <th scope="col">Año</th>
                     <th scope="col">Archivo</th>
                     <th scope="col">Descargar</th>
                 </tr>
@@ -79,7 +80,8 @@ if (isset($_POST) && isset($_POST["post"])) {
                 if (!isset($_SESSION['error']) && $ready) {
                     foreach ($files as $file) { ?>
                         <tr>
-                            <td><?= $file['name'] ?></td>
+                            <td><?= explode('.', $file['name'])[0] ?></td>
+                            <td><?= $_POST['anio'] ?></td>
                             <td><?= $file['name'] ?></td>
                             <td><?= $html->downloadForm($file['name'], $file['path']) ?></td>
                         </tr>

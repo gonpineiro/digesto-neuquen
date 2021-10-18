@@ -35,8 +35,11 @@ class RenderHtml
     public function downloadForm($name, $path)
     {
         return "<form action='../download.php' method='POST'>
-                    <button class='btn btn-primary btn-download' style='width: 100%'>
+                    <button class='btn btn-primary btn-download' onclick='spinnerDowload();' style='width: 100% !important'>
                     ↓</button>
+                    <div class='spinner-border text-primary' hidden role='status'>
+                        <span class='visually-hidden'>Loading...</span>
+                    </div>
                     <input type='text' value='$path' hidden name='path'>
                     <input type='text' value='$name' hidden name='name'>
                 </form>";
