@@ -32,7 +32,7 @@ if (isset($_POST) && isset($_POST["post"])) {
 <?php include '../common/header.php' ?>
 
 <div class="container">
-    <div class="card" style="width: 100%; padding: 20px; background-color:#5997d1">
+    <div class="card" style="width: 100%; padding: 20px; background-color:#315891">
         <h1 class="subtitle text-light" style="padding-top: 20px; padding-bottom: 30px">Búsqueda de Resolución</h1>
     </div>
 </div>

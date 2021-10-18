@@ -9,18 +9,26 @@ header{
 
 .banner {
   display: block;
-  margin-left: auto;
   margin-right: auto;
+      width: 20%;
+    float: left;
+    margin-top: 2%;
+    margin-left: 4%;
 }
 .container {
   padding-top: 30px;
+  clear: both;
 }
 
 .subtitle{
   text-align: center;
-  margin-bottom:15px;
+      margin-bottom: 2%;
+    margin-top: 2%;
 }
-
+.card .subtitle{
+      margin-bottom: 2%;
+    margin-top: 2%;
+}
 .card-container{
   display: flex;
   flex-wrap: wrap;
@@ -37,12 +45,26 @@ header{
 }
 .card,
 .card-header {
-  border-radius: 10px !important;
+    border-radius: 0px !important;
+    border: 0px;
 }
 
 .card-body {
-  background: #F7F7F7;
-  color: #686866;
+background: #42b2df;
+    color: white;
+    border: 0px;
+    padding: 0px;
+}
+.card-title {
+    color: white!important;
+    padding: 8%!important;
+    text-align: center!important;
+}
+.card-text:last-child {
+    background: #b8ddf0!important;
+    padding: 2% 4%!important;
+    text-align: center!important;
+    color: #1067ae!important;
 }
 .btn-download {
   padding: 5px;
@@ -105,7 +127,7 @@ input[type="number"] {
 body {
   background-size: 100%;
   background: url(http://storage2.muninqn.local:82/webResources/images/fondo.jpg)
-    0% -36%;
+    0% 0%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-family: "Hind", sans-serif;
@@ -164,8 +186,8 @@ h6 {
 }
 .btn-primary {
   color: #fff;
-  background-color: #5bc0de;
-  border-color: #46b8da;
+  background-color: #4DC1ED;
+  border-color: #4DC1ED;
 }
 .btn.btn-primary.float-right {
   width: 20%;
