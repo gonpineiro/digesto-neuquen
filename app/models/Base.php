@@ -19,7 +19,7 @@ class Base
     public function setCodigo(String $codigo)
     {
         $codigoLen = strlen($codigo);
-        for ($i=$codigoLen; $i < $this->digitos; $i++) { 
+        for ($i = $codigoLen; $i < $this->digitos; $i++) {
             $codigo = "0" . $codigo;
         }
         $this->codigo = $this->letra . '-' . $codigo . '-';
@@ -36,7 +36,7 @@ class Base
             };
             unset($files[0]);
             unset($files[1]);
-            return array_values($files);
+            return array_reverse(array_values($files));
         }
     }
 
