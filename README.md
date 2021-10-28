@@ -1,6 +1,6 @@
 #### Digesto Neuquén
 
-Busqueda de normas municipales históricas de la ciudad de Neuquén.
+Busqueda de normas municipales históricas de la ciudad de Neuquén. Se realizo decretos y resoluciones.
 
 El proyecto presenta las siguentes variables de entorno, configurado en `.env`
 
